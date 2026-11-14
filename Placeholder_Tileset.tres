@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" format=3 uid="uid://cqkm7tfwiylaq"]
+
+[ext_resource type="Texture2D" uid="uid://c0v4xb4kyjp3d" path="res://Sprites/Tiles/Interior/Placeholder_tile48x.png" id="1_1wk1d"]
+[ext_resource type="Texture2D" uid="uid://cwsnovqyqef8b" path="res://Sprites/Tiles/Interior/Placeholder_wall.png" id="2_6rlt3"]
+[ext_resource type="Texture2D" uid="uid://brikuvhqppyr6" path="res://Sprites/Tiles/Interior/Placeholder_Top_Wall.png" id="3_5lyo7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_clk0i"]
+texture = ExtResource("1_1wk1d")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qevu2"]
+texture = ExtResource("2_6rlt3")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kigmg"]
+texture = ExtResource("3_5lyo7")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(48, 48)
+sources/1 = SubResource("TileSetAtlasSource_clk0i")
+sources/4 = SubResource("TileSetAtlasSource_qevu2")
+sources/5 = SubResource("TileSetAtlasSource_kigmg")
