@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dlvhgno4rivvp"]
+
+[ext_resource type="Texture2D" uid="uid://btlb21lawt1xi" path="res://Sprites/Player/Zombies characters.png" id="1_p0obo"]
+
+[resource]
+atlas = ExtResource("1_p0obo")

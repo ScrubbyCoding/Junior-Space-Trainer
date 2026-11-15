@@ -1,18 +1,14 @@
 [gd_scene format=4 uid="uid://cxmqns5fbeoht"]
 
-[ext_resource type="TileSet" uid="uid://cqkm7tfwiylaq" path="res://Placeholder_Tileset.tres" id="1_pjbg2"]
-[ext_resource type="Texture2D" uid="uid://c0q8t3bjrcv7b" path="res://Sprites/Player/Placeholder_guy_idle.png" id="2_2ktxb"]
+[ext_resource type="TileSet" uid="uid://cqkm7tfwiylaq" path="res://Placeholder_Tileset.tres" id="1_cbkwy"]
+[ext_resource type="Script" uid="uid://cygtnusyqr4j4" path="res://Scripts/CharacterController.gd" id="2_gcbeg"]
+[ext_resource type="SpriteFrames" uid="uid://bds2rfksjcix1" path="res://Sprites/Player/new_sprite_frames.tres" id="3_c3cbu"]
+[ext_resource type="Script" uid="uid://bh4ji6tcja5ox" path="res://Scripts/NPC.gd" id="4_gcbeg"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_h7n1j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2ktxb")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7n1j"]
+size = Vector2(29, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyont"]
 
 [node name="MainRoom" type="Node2D" unique_id=1135878515]
 
@@ -20,11 +16,29 @@ animations = [{
 texture_filter = 1
 texture_repeat = 1
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAACAAEAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAYAAQAAAAAAAAACAAYAAQAAAAAAAAADAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAUAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAQAAQAAAAAAAAADAAUAAQAAAAAAAAACAAUAAQAAAAAAAAABAAUAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAADAAMAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAD//wAABAAAAAAAAAD//wEABAAAAAAAAAD//wIABAAAAAAAAAD//wMABAAAAAAAAAD//wQABAAAAAAAAAD//wUABAAAAAAAAAD//wYABAAAAAAAAAAIAAAABAAAAAAAADAIAAEABAAAAAAAADAIAAIABAAAAAAAADAIAAMABAAAAAAAADAIAAQABAAAAAAAADAIAAUABAAAAAAAADAIAAYABAAAAAAAADAAAP//BQAAAAAAAAABAP//BQAAAAAAAAACAP//BQAAAAAAAAADAP//BQAAAAAAAAAEAP//BQAAAAAAAAAFAP//BQAAAAAAAAAGAP//BQAAAAAAAAAHAP//BQAAAAAAAAA=")
-tile_set = ExtResource("1_pjbg2")
+tile_set = ExtResource("1_cbkwy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835089495]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1797209199 node_paths=PackedStringArray("sprite")]
+position = Vector2(165, 98)
+motion_mode = 1
+script = ExtResource("2_gcbeg")
+sprite = NodePath("Player")
+
+[node name="Player" type="AnimatedSprite2D" parent="Player" unique_id=1835089495]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(73, 49)
-sprite_frames = SubResource("SpriteFrames_h7n1j")
-animation = &"idle"
+sprite_frames = ExtResource("3_c3cbu")
+animation = &"down_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1394223208]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_h7n1j")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=102168175]
+zoom = Vector2(1.8, 1.8)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1294016283]
+script = ExtResource("4_gcbeg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=62797264]
+shape = SubResource("RectangleShape2D_jyont")
