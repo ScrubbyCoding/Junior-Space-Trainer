@@ -1,6 +1,7 @@
 @abstract class_name DialogueNode
 
 var text : String = ""
+var profile_sprite : Sprite2D 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
