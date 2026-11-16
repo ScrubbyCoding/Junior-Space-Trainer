@@ -4,7 +4,7 @@ class_name ObstacleGenerator
 var progress: int = 0
 #placeholder
 var maxProgress: int = 100
-
+@export var character:Node2D
 var EmptySection = preload("res://endless runner/Sections/EmptySection.tscn")
 var ChasmsSection = preload("res://endless runner/Sections/Chasms.tscn")
 var DifficultSection = preload("res://endless runner/Sections/Difficult.tscn")
@@ -47,7 +47,7 @@ var finished:bool
 
 @export var victoryImage:Control
 
-var timeToSurvive:float = 10;
+var timeToSurvive:float = 0;
 static var endless:bool
 static var difficulty:int
 
@@ -55,24 +55,43 @@ var started:bool = false
 var random = RandomNumberGenerator.new()
 
 func wait(seconds: float) -> void:
+	print("okay")
 	await get_tree().create_timer(seconds).timeout
+	print("huh?")
+	character.queue_free()
 	victoryImage.visible = true
 	finished = true
 
 func finishGame() -> void: 
-	if not endless:
+	if endless == false:
+		print(timeToSurvive)
 		wait(timeToSurvive)
+		print("waiting")
+func startGame() -> void:
 	
+	finishGame()
+	started = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("???")
+	if endless == false:
+		if difficulty == 1:
+			timeToSurvive = 20
+			print("time to surive")
+		if difficulty == 2:
+			timeToSurvive = 45
+		if difficulty == 3:
+			timeToSurvive = 60
+	print("we here")
 	if difficulty == 1:
 		currentLevel = beginnerLevel
+		scrollSpeed  = 450
 	if difficulty == 2:
 		currentLevel = intermediateLevel
 	if difficulty == 3:
 		currentLevel = hardLevel
-	currentLevel = hardLevel
+	#currentLevel = hardLevel
 	victoryImage.visible = false
 	victoryImage.modulate = Color(1,1,1, 0)
 	var beg = EmptySection.instantiate()
@@ -107,10 +126,7 @@ func returnBiggestTileWidth(inputNode:Node2D) -> int:
 				potWidth = nodeWidth
 	return potWidth
 	
-func startGame() -> void:
-	await get_tree().create_timer(0).timeout
-	finishGame()
-	started = true
+
 
 func _getNextNode() -> PackedScene:
 	var weights: PackedFloat32Array

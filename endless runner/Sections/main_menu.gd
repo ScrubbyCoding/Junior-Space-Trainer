@@ -33,11 +33,14 @@ func _backButton():
 
 
 func _startGame(targetDifficulty:int) -> void:
-	var scene:Node2D = GameplayScene.instantiate()
 	ObstacleGenerator.difficulty = targetDifficulty
+	var scene = GameplayScene.instantiate()
+	get_tree().root.add_child(scene)
+	#scene.get_parent().remove_child(scene)
 	
+	print("we get here at least")
 	queue_free()
-	print();
+	#print();
 
 
 func _on_button_pressed() -> void:
