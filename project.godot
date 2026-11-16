@@ -11,14 +11,23 @@ config_version=5
 [application]
 
 config/name="Junior Space Trainer"
-run/main_scene="uid://cxmqns5fbeoht"
+run/main_scene="uid://d0bldb6bj8v18"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Junior Space Trainer"
+
+[global_group]
+
+Hazard=""
 
 [input]
 

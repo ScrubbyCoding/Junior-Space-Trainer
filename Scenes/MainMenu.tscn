@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://d0bldb6bj8v18"]
+
+[ext_resource type="Script" uid="uid://cp1tkmcvykmnw" path="res://endless runner/Sections/main_menu.gd" id="1_8saeu"]
+[ext_resource type="FontFile" uid="uid://br1jy60ne7cog" path="res://endless runner/80s-retro-future.ttf" id="2_ghw46"]
+[ext_resource type="Texture2D" uid="uid://b84u48qg5fn0u" path="res://seraphim/Art/TileSets/Spaceship tileset/Spaceship Tileset/parallaxes/Universe.png" id="3_df05h"]
+
+[sub_resource type="Theme" id="Theme_jgdxq"]
+default_font = ExtResource("2_ghw46")
+default_font_size = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfav1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_punfg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73a7a"]
+bg_color = Color(0.6, 0.6, 0.6, 0.79607844)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbpdp"]
+bg_color = Color(0.6, 0.6, 0.6, 0.4745098)
+
+[node name="MainMenu" type="Control" unique_id=1812410914 node_paths=PackedStringArray("difficultyScreen", "mainScreen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8saeu")
+difficultyScreen = NodePath("Control/Difficulty")
+mainScreen = NodePath("Control/Main")
+
+[node name="Control" type="Control" parent="." unique_id=1123253036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jgdxq")
+
+[node name="Space" type="TextureRect" parent="Control" unique_id=1006952185]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -280.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_df05h")
+expand_mode = 5
+stretch_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="Control" unique_id=1540989623]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 47.0
+offset_right = 1152.0
+offset_bottom = 147.0
+theme_override_fonts/normal_font = ExtResource("2_ghw46")
+theme_override_font_sizes/normal_font_size = 98
+text = "Mission Ares"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" type="Panel" parent="Control" unique_id=431741476]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.25
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kfav1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Main" unique_id=1798778166]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Main/VBoxContainer" unique_id=1845030235]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+alignment = 1
+
+[node name="ObjectiveMode" type="Control" parent="Control/Main/VBoxContainer/HBoxContainer" unique_id=819270837]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Control/Main/VBoxContainer/HBoxContainer/ObjectiveMode" unique_id=118830606]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Main/VBoxContainer/HBoxContainer/ObjectiveMode" unique_id=363862619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 34
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[b] OBJECTIVE MODE[/b]
+
+Make it to the South Seitah region of the of the Jezero Crater, and collect samples."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control/Main/VBoxContainer/HBoxContainer/ObjectiveMode" unique_id=1596387765]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_punfg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_73a7a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bbpdp")
+
+[node name="EndlessMOde" type="Control" parent="Control/Main/VBoxContainer/HBoxContainer" unique_id=615962975]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Control/Main/VBoxContainer/HBoxContainer/EndlessMOde" unique_id=1945110233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Main/VBoxContainer/HBoxContainer/EndlessMOde" unique_id=1412055896]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 34
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[b] ENDLESS MODE[/b]
+
+How far can you go?"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control/Main/VBoxContainer/HBoxContainer/EndlessMOde" unique_id=1743344991]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_punfg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_73a7a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bbpdp")
+
+[node name="Difficulty" type="Panel" parent="Control" unique_id=768411085]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.25
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kfav1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Difficulty" unique_id=518342961]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Easy" type="Button" parent="Control/Difficulty/VBoxContainer" unique_id=552593240]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Easy"
+
+[node name="Medium" type="Button" parent="Control/Difficulty/VBoxContainer" unique_id=551817250]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Medium"
+
+[node name="Hard" type="Button" parent="Control/Difficulty/VBoxContainer" unique_id=1213735427]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Hard"
+
+[node name="Spacer" type="Control" parent="Control/Difficulty/VBoxContainer" unique_id=1934488052]
+custom_minimum_size = Vector2(0, 55.715)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Control/Difficulty/VBoxContainer" unique_id=1248083222]
+custom_minimum_size = Vector2(219.73, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="Control" type="Control" parent="Control" unique_id=1424425369]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Control/Main/VBoxContainer/HBoxContainer/ObjectiveMode/Button" to="." method="_difficultyScreen" binds= [false]]
+[connection signal="pressed" from="Control/Main/VBoxContainer/HBoxContainer/EndlessMOde/Button" to="." method="_difficultyScreen" binds= [true]]
+[connection signal="pressed" from="Control/Difficulty/VBoxContainer/Easy" to="." method="_startGame" binds= [1]]
+[connection signal="pressed" from="Control/Difficulty/VBoxContainer/Medium" to="." method="_startGame" binds= [2]]
+[connection signal="pressed" from="Control/Difficulty/VBoxContainer/Hard" to="." method="_startGame" binds= [3]]
+[connection signal="pressed" from="Control/Difficulty/VBoxContainer/Back" to="." method="_backButton"]
